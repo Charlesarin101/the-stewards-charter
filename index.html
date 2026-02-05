@@ -3,210 +3,619 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="The Steward’s Charter — a trust-first financial stewardship framework guided by Charles Arin (Custodian Life Assurance Ltd). Protection, growth, and control." />
-  <title>The Steward’s Charter</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>The Steward’s Charter • Custodian Life Assurance</title>
+  <meta name="description" content="A calm, wisdom-based charter for protection, growth, and retirement clarity — guided by Charles Arin (Custodian Life Assurance Ltd)." />
+  <meta name="theme-color" content="#002B5C" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Steward’s Charter" />
+  <meta property="og:description" content="Protection. Growth. Retirement clarity — in a calm, covenantal tone." />
+  <meta property="og:type" content="website" />
+  <!-- If you want an OG image later, upload one and set: <meta property="og:image" content="YOUR_IMAGE.png" /> -->
+
+  <style>
+    :root{
+      --navy:#002B5C;
+      --forest:#0A5C36;
+      --gold:#D4AF37;
+      --paper:#FFFFFF;
+      --stone:#F5F7FA;
+      --ink:#0B1220;
+      --muted:#5B667A;
+      --line:rgba(15,23,42,.12);
+      --shadow: 0 18px 48px rgba(0,0,0,.10);
+      --radius: 18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background: linear-gradient(180deg, #ffffff 0%, var(--stone) 100%);
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(0,43,92,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      min-width: 220px;
+    }
+    .brand img{height:30px; width:auto; display:block}
+    .brand .name{
+      color:#fff; font-weight:800; letter-spacing:.2px; font-size:14px; line-height:1.1;
+    }
+    .brand .sub{
+      display:block; font-weight:500; font-size:11px; color:rgba(255,255,255,.78);
+      margin-top:2px;
+    }
+    .nav{
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      color:rgba(255,255,255,.88);
+      font-weight:650;
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .nav a:hover{border-color:rgba(255,255,255,.30); color:#fff}
+    .hero{
+      padding:28px 0 12px;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      .brand{min-width: unset}
+      .nav{justify-content:flex-start}
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card-pad{padding:18px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      background: rgba(212,175,55,.14);
+      color: var(--navy);
+      border:1px solid rgba(212,175,55,.25);
+      padding:7px 10px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.2px;
+    }
+    h1{
+      margin:12px 0 10px;
+      font-size:28px; line-height:1.15;
+      color:var(--navy);
+      letter-spacing:-.4px;
+    }
+    p{margin:0 0 10px; color:var(--muted); line-height:1.6; font-size:14px}
+    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+      border:1px solid transparent;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn.primary{background:var(--navy); color:#fff; border-color:rgba(255,255,255,.10)}
+    .btn.primary:hover{filter:brightness(1.04)}
+    .btn.secondary{background:#fff; color:var(--navy); border-color:rgba(0,43,92,.22)}
+    .btn.secondary:hover{border-color:rgba(0,43,92,.36)}
+    .btn.gold{background:var(--gold); color:#111; border-color:rgba(0,0,0,.08)}
+    .btn.gold:hover{filter:brightness(1.03)}
+    .pillars{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px;
+    }
+    .pillar{
+      background: linear-gradient(180deg, rgba(245,247,250,.55) 0%, rgba(255,255,255,1) 100%);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+    }
+    .pillar h3{margin:0 0 6px; font-size:13px; color:var(--navy)}
+    .pillar p{margin:0; font-size:12.5px}
+    @media (max-width: 520px){
+      .pillars{grid-template-columns:1fr}
+    }
+    .profile{
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    .avatar{
+      width:62px; height:62px; border-radius:18px;
+      background: var(--stone);
+      border:1px solid var(--line);
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .profile h2{margin:0 0 4px; font-size:16px; color:var(--navy)}
+    .profile .meta{font-size:12.5px; color:var(--muted); line-height:1.5}
+    .line{
+      height:1px; background:var(--line); margin:14px 0;
+    }
+    .mini{
+      display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    }
+    .mini .box{
+      background:var(--stone);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+    }
+    .mini .box b{display:block; color:var(--navy); font-size:12px; margin-bottom:4px}
+    .mini .box a{color:var(--navy)}
+    .section{
+      padding:16px 0;
+    }
+    .section h2{
+      margin:0 0 10px; font-size:18px; color:var(--navy);
+      letter-spacing:-.2px;
+    }
+    .section .lead{margin-bottom:14px}
+    .grid-2{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    }
+    @media (max-width: 860px){ .grid-2{grid-template-columns:1fr} }
+    .panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    .panel .head{
+      padding:14px 16px;
+      background: linear-gradient(90deg, rgba(0,43,92,1) 0%, rgba(10,92,54,1) 110%);
+      color:#fff;
+    }
+    .panel .head .tag{
+      display:inline-block;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.25px;
+      color:rgba(255,255,255,.88);
+      border:1px solid rgba(255,255,255,.20);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .panel .head h3{margin:10px 0 0; font-size:16px}
+    .panel .body{padding:14px 16px}
+    .panel .body ul{margin:10px 0 0 18px; color:var(--muted); line-height:1.65; font-size:13.5px}
+    .downloads{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+    }
+    @media (max-width: 860px){ .downloads{grid-template-columns:1fr} }
+    .dl{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .dl b{color:var(--navy)}
+    .dl small{color:var(--muted); line-height:1.45}
+    .embed{
+      width:100%;
+      border:0;
+      min-height: 680px;
+      background:var(--stone);
+    }
+    .note{
+      background: rgba(10,92,54,.08);
+      border: 1px solid rgba(10,92,54,.18);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: #1f3a2d;
+      font-size: 13.5px;
+      line-height: 1.55;
+      margin-top: 12px;
+    }
+    .footer{
+      margin-top:16px;
+      padding:18px 0 26px;
+      color:rgba(255,255,255,.82);
+      background:var(--navy);
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .footer .row{
+      display:flex; gap:14px; justify-content:space-between; flex-wrap:wrap;
+      align-items:center;
+    }
+    .footer small{color:rgba(255,255,255,.82)}
+    .footer a{color:#fff}
+    .tiny{font-size:11px; color:rgba(255,255,255,.70); line-height:1.5}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid rgba(255,255,255,.22);
+      padding:8px 10px;
+      border-radius:999px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      font-size:12px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="container hero-inner">
-      <img
-        src="custodian-logo-mono-white.png"
-        class="hero-logo"
-        alt="Custodian Life Assurance Ltd"
-        loading="eager"
-      />
 
-      <div class="hero-icon" aria-hidden="true">
-        <!-- simple arch icon -->
-        <svg width="92" height="92" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M28 78C28 54.8 42.8 36 60 36C77.2 36 92 54.8 92 78" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-          <path d="M45 78H75" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-          <path d="M54 30H66" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-          <path d="M54 30L60 18L66 30" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <!-- REQUIRED FILE: custodian-logo-mono-white.png -->
+        <img src="custodian-logo-mono-white.png" alt="Custodian Life Assurance" />
+        <span class="name">
+          The Steward’s Charter
+          <span class="sub">Custodian Life Assurance Ltd • Financial Stewardship</span>
+        </span>
+      </a>
 
-      <h1 class="hero-title">THE STEWARD’S<br/>CHARTER</h1>
-      <p class="hero-subtitle">Become the Architect of Your Family’s<br/>Financial Security</p>
-
-      <div class="hero-rule" aria-hidden="true"></div>
-
-      <div class="hero-buttons">
-        <a class="btn btn-primary" href="stewards-charter.pdf" download>Download PDF</a>
-        <a class="btn btn-ghost" href="https://wa.me/2348136805462?text=Hello%20Charles%2C%20I%20want%20to%20start%20The%20Steward%E2%80%99s%20Charter.%20Please%20guide%20me." target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
-
-      <p class="hero-footnote">
-        A stewardship framework guided in partnership with
-        <strong>Custodian Life Assurance Ltd.</strong>
-      </p>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#pathways">Pathways</a>
+        <a href="#retirees">Retirees</a>
+        <a href="#adults">Adults</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#recruitment">Recruitment</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <!-- WHY -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title green">WHY STEWARDSHIP &gt; SAVING</h2>
-
-        <div class="quote-block">
-          <p>Saving asks, <span class="em-blue">“Can I put something aside?”</span></p>
-          <p>Stewardship asks, <span class="em-blue">“What am I building — and for whom?”</span></p>
-          <p class="muted">
-            This charter outlines a disciplined path to <strong>protection</strong>, <strong>growth</strong>,
-            and <strong>control</strong> — designed to help families plan intentionally, not emotionally.
+  <!-- HERO -->
+  <a id="top"></a>
+  <div class="container hero">
+    <div class="hero-grid">
+      <section class="card">
+        <div class="card-pad">
+          <span class="kicker">Faith • Discipline • Craft • Legacy</span>
+          <h1>Become the Architect of Your Family’s Financial Security</h1>
+          <p>
+            This is not a loud sales page. It is a calm, structured charter — designed to help responsible adults
+            choose the right financial tools for their season: <b>Protection</b>, <b>Growth</b>, and <b>Retirement Peace</b>.
           </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- GUIDE CARD -->
-    <section class="section alt">
-      <div class="container">
-        <div class="card profile-card">
-          <div class="avatar-wrap">
-            <img src="charles-arin.jpg" class="avatar" alt="Charles Arin" loading="lazy" />
+          <div class="hero-actions">
+            <a class="btn primary" href="#pathways">Enter the Stewardship Pathways</a>
+            <a class="btn secondary" href="https://wa.me/2348136805462">WhatsApp Charles</a>
+            <a class="btn gold" href="tel:+2348136805462">Call Now</a>
           </div>
 
-          <div class="profile-text">
-            <h3 class="name">CHARLES ARIN</h3>
-            <p class="title">Unit Manager | Financial Stewardship Guide</p>
-            <p class="org">Custodian Life Assurance Ltd</p>
-            <p class="muted small">
-              Guidance provided in line with Custodian Life Assurance Ltd policies and regulations.
-            </p>
+          <div class="pillars" aria-label="The three pillars">
+            <div class="pillar">
+              <h3>Protection</h3>
+              <p>Secure people, income, and plans against disruption.</p>
+            </div>
+            <div class="pillar">
+              <h3>Growth</h3>
+              <p>Build a disciplined fund for goals and legacy.</p>
+            </div>
+            <div class="pillar">
+              <h3>Control</h3>
+              <p>Choose structures that match your season and risk tolerance.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- THREE PILLARS -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">THE THREE-PILLAR FOUNDATION</h2>
-
-        <div class="grid">
-          <div class="card">
-            <div class="card-head">
-              <div class="mini-icon" aria-hidden="true">
-                <!-- shield -->
-                <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 6-4 10-8 10S4 18 4 12V6l8-4z"/></svg>
-              </div>
-              <div>
-                <h3 class="card-title">THE SHIELD</h3>
-                <p class="card-sub">Protection</p>
+      <aside class="card">
+        <div class="card-pad">
+          <div class="profile">
+            <div class="avatar">
+              <!-- REQUIRED FILE: charles-arin.jpg -->
+              <img src="charles-arin.jpg" alt="Charles Arin" />
+            </div>
+            <div>
+              <h2>Charles Arin</h2>
+              <div class="meta">
+                Unit Manager • Financial Stewardship Guide<br/>
+                Custodian Life Assurance Ltd
               </div>
             </div>
-            <ul class="bullets">
-              <li>Life cover for family continuity</li>
-              <li>Personal accident support</li>
-            </ul>
           </div>
 
-          <div class="card">
-            <div class="card-head">
-              <div class="mini-icon" aria-hidden="true">
-                <!-- engine -->
-                <svg viewBox="0 0 24 24"><path d="M7 7h10v10H7V7zm-3 3h3v4H4v-4zm13-3h3v10h-3V7zM9 3h6v4H9V3z"/></svg>
-              </div>
-              <div>
-                <h3 class="card-title">THE ENGINE</h3>
-                <p class="card-sub">Growth</p>
-              </div>
+          <div class="line"></div>
+
+          <div class="mini">
+            <div class="box">
+              <b>WhatsApp</b>
+              <a href="https://wa.me/2348136805462">+2348136805462</a>
             </div>
-            <ul class="bullets">
-              <li>Long-term savings &amp; investment discipline</li>
-              <li>Education, home, business goals</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-head">
-              <div class="mini-icon" aria-hidden="true">
-                <!-- bridge -->
-                <svg viewBox="0 0 24 24"><path d="M3 18h18v2H3v-2zm2-3c3-4 5-6 7-6s4 2 7 6h-2c-2-3-3-4-5-4s-3 1-5 4H5z"/></svg>
-              </div>
-              <div>
-                <h3 class="card-title">THE BRIDGE</h3>
-                <p class="card-sub">Control</p>
-              </div>
+            <div class="box">
+              <b>Email</b>
+              <a href="mailto:charlesarin1@gmail.com">charlesarin1@gmail.com</a>
             </div>
-            <ul class="bullets">
-              <li>Top-ups &amp; policy loans (where applicable)</li>
-              <li>Structured withdrawals &amp; annuity pathways</li>
-              <li>Minimum duration: <strong>1 Year</strong></li>
+          </div>
+
+          <div class="note" style="margin-top:12px;">
+            Your strategy begins with a conversation. I respond within <b>24 hours</b>.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- PATHWAYS -->
+  <section class="section">
+    <div class="container">
+      <a id="pathways"></a>
+      <h2>Stewardship Pathways</h2>
+      <p class="lead">
+        Select the pathway that matches your season. Each pathway includes a free guide and a short inquiry form.
+        This is designed for clarity, not pressure.
+      </p>
+
+      <div class="grid-2">
+        <!-- RETIREES -->
+        <div class="panel">
+          <div class="head">
+            <span class="tag">FOR RETIREES</span>
+            <h3>Secure Your Legacy with Retirement Peace</h3>
+          </div>
+          <div class="body">
+            <p>
+              Retirement is not the end of provision — it is the harvest season of stewardship.
+              This pathway clarifies the key choice: <b>Programmed Withdrawal vs Retirement Life Annuity</b>.
+            </p>
+            <ul>
+              <li>Clear comparison table (PW vs Annuity)</li>
+              <li>Decision framework: legacy, longevity, risk, and peace</li>
+              <li>Soft next step: a clarity conversation</li>
             </ul>
+            <div class="hero-actions" style="margin-top:12px;">
+              <!-- REQUIRED FILE: Retirees-Annuity-Master-Guide.pdf -->
+              <a class="btn secondary" href="Retirees-Annuity-Master-Guide.pdf" download>Download Retirees Guide (PDF)</a>
+              <a class="btn primary" href="#retirees">Start Annuity Inquiry</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- WHO THIS IS FOR -->
-    <section class="section alt">
-      <div class="container">
-        <h2 class="section-title green">WHO THIS IS FOR</h2>
-
-        <div class="grid two">
-          <div class="card">
-            <h3 class="card-title">Retirees &amp; Those Planning Retirement</h3>
-            <p class="muted">
-              For people who want to convert savings or a lump sum into a <strong>guaranteed monthly income</strong>
-              for life—protecting dignity and preventing outliving resources.
+        <!-- ADULTS -->
+        <div class="panel">
+          <div class="head">
+            <span class="tag">FOR ADULTS</span>
+            <h3>Protect & Grow Your Family’s Future</h3>
+          </div>
+          <div class="body">
+            <p>
+              For working adults, parents, and business owners who want disciplined progress:
+              protect what matters, grow what you’re building, and keep control.
             </p>
-            <p class="muted small">Focus: <strong>Annuity Plans</strong> (lifetime income &amp; peace of mind).</p>
+            <ul>
+              <li>Protection first, then growth with discipline</li>
+              <li>Stewardship decision framework (not salesy)</li>
+              <li>Guidance toward the right tools for your season</li>
+            </ul>
+            <div class="hero-actions" style="margin-top:12px;">
+              <!-- REQUIRED FILE: Adults-Protection-and-Growth-Stewards-Guide-Final.pdf -->
+              <a class="btn secondary" href="Adults-Protection-and-Growth-Stewards-Guide-Final.pdf" download>Download Adults Guide (PDF)</a>
+              <a class="btn primary" href="#adults">Explore Protection & Growth</a>
+            </div>
           </div>
-
-          <div class="card">
-            <h3 class="card-title">Working Adults, Business Owners &amp; Families</h3>
-            <p class="muted">
-              For people who want disciplined savings with <strong>life protection</strong>—building a personal fund
-              for education, projects, and long-term wealth while protecting family continuity.
-            </p>
-            <p class="muted small">Focus: <strong>Traditional Plans</strong> (e.g., Esusu Shield).</p>
-          </div>
-        </div>
-
-        <div class="notice">
-          In short: if someone is thinking about securing a stable retirement or building protected savings for family goals, they are a potential fit.
         </div>
       </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="cta">
-      <div class="container cta-inner">
-        <p class="cta-line"><em>Your strategy begins with a conversation.</em></p>
-        <div class="cta-number">+234 813 680 5462</div>
+    </div>
+  </section>
 
-        <div class="cta-buttons">
-          <a class="btn btn-primary" href="https://wa.me/2348136805462?text=Hello%20Charles%2C%20I%20want%20to%20start%20The%20Steward%E2%80%99s%20Charter.%20Please%20guide%20me." target="_blank" rel="noopener">Chat on WhatsApp</a>
-          <a class="btn btn-ghost" href="tel:+2348136805462">Call Now</a>
+  <!-- RETIREES FORM -->
+  <section class="section">
+    <div class="container">
+      <a id="retirees"></a>
+      <h2>Retirees – Start Your Annuity Inquiry</h2>
+      <p class="lead">
+        This is a stewardship inquiry, not a purchase commitment. Submit your details for a clarity conversation.
+        I will contact you within 24 hours.
+      </p>
+
+      <div class="panel">
+        <div class="head">
+          <span class="tag">RETIREMENT CLARITY</span>
+          <h3>Retirees Annuity Inquiry Form</h3>
         </div>
+        <div class="body">
+          <iframe
+            class="embed"
+            title="Retirees Annuity Inquiry"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfduPU-LKGuKicCD9C8NKq0593grEwm6Go7vO9b1Kl0YAL2cA/viewform?embedded=true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
 
-        <div class="cta-mini-logo">
-          <img src="custodian-logo-mono-white.png" alt="Custodian Life Assurance Ltd" loading="lazy" />
-        </div>
-
-        <div class="cta-links">
-          <a href="recruitment.html">Recruitment: Insurance Advisors</a>
-          <span class="dot">•</span>
-          <a href="#top">Back to top</a>
+          <div class="note">
+            Prefer WhatsApp? Send <b>RETIREMENT</b> to
+            <a href="https://wa.me/2348136805462">+2348136805462</a>.
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- ADULTS FORM -->
+  <section class="section">
+    <div class="container">
+      <a id="adults"></a>
+      <h2>Adults – Protection & Growth Inquiry</h2>
+      <p class="lead">
+        Share a few details. You will receive a guided recommendation aligned with your responsibilities, goals, and time horizon.
+        I will contact you within 24 hours.
+      </p>
+
+      <div class="panel">
+        <div class="head">
+          <span class="tag">FAMILY FOUNDATION</span>
+          <h3>Protection & Growth Inquiry Form</h3>
+        </div>
+        <div class="body">
+          <iframe
+            class="embed"
+            title="Adults Protection and Growth Inquiry"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdoNWC3zDkv4_yU_JcEu9_lma_kfxkszl9l2Q9DMdJSE9LXFA/viewform?embedded=true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <div class="note">
+            Prefer WhatsApp? Send <b>FAMILY</b> to
+            <a href="https://wa.me/2348136805462">+2348136805462</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOADS -->
+  <section class="section">
+    <div class="container">
+      <a id="downloads"></a>
+      <h2>Downloads</h2>
+      <p class="lead">Practical documents designed to educate and guide — not brochures.</p>
+
+      <div class="downloads">
+        <div class="dl">
+          <b>The Steward’s Charter (Core Document)</b>
+          <small>Primary charter document for orientation and conviction.</small>
+          <!-- REQUIRED FILE: stewards-charter.pdf -->
+          <a class="btn secondary" href="stewards-charter.pdf" download>Download (PDF)</a>
+        </div>
+
+        <div class="dl">
+          <b>Retirees Guide: Annuity vs Programmed Withdrawal</b>
+          <small>Clear table + decision framework for retirement income choices.</small>
+          <!-- REQUIRED FILE: Retirees-Annuity-Master-Guide.pdf -->
+          <a class="btn secondary" href="Retirees-Annuity-Master-Guide.pdf" download>Download (PDF)</a>
+        </div>
+
+        <div class="dl">
+          <b>Adults Guide: Protection & Growth</b>
+          <small>Protection-first foundation + disciplined growth + reflection framework.</small>
+          <!-- REQUIRED FILE: Adults-Protection-and-Growth-Stewards-Guide-Final.pdf -->
+          <a class="btn secondary" href="Adults-Protection-and-Growth-Stewards-Guide-Final.pdf" download>Download (PDF)</a>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:14px;">
+        <b>Note:</b> These materials are informational and guidance-based. Final terms and benefits are subject to Custodian Life Assurance Ltd policy documents and applicable regulations.
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUITMENT -->
+  <section class="section">
+    <div class="container">
+      <a id="recruitment"></a>
+      <h2>Recruitment – Join the Stewardship Practice</h2>
+      <p class="lead">
+        We are building a disciplined unit — stewards, not pressure sellers. If you value integrity, training, and craft, you may apply.
+      </p>
+
+      <div class="panel">
+        <div class="head">
+          <span class="tag">RECRUITMENT PHASE</span>
+          <h3>Apply via WhatsApp</h3>
+        </div>
+        <div class="body">
+          <p>
+            Send a WhatsApp message with the word <b>APPLY</b>. You will receive next steps for screening and training.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://wa.me/2348136805462?text=APPLY">WhatsApp Apply</a>
+            <a class="btn secondary" href="#contact">Contact</a>
+          </div>
+          <div class="note">
+            This is a training lodge culture: attendance, practice, and submission are required.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" style="padding-bottom:26px;">
+    <div class="container">
+      <a id="contact"></a>
+      <h2>Contact</h2>
+      <p class="lead">For consultations, stewardship questions, and guided pathways.</p>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">DIRECT</span>
+            <h3>Reach Charles</h3>
+          </div>
+          <div class="body">
+            <p><b>WhatsApp:</b> <a href="https://wa.me/2348136805462">+2348136805462</a></p>
+            <p><b>Call:</b> <a href="tel:+2348136805462">+2348136805462</a></p>
+            <p><b>Email:</b> <a href="mailto:charlesarin1@gmail.com">charlesarin1@gmail.com</a></p>
+            <div class="hero-actions" style="margin-top:10px;">
+              <a class="btn primary" href="https://wa.me/2348136805462">WhatsApp Now</a>
+              <a class="btn gold" href="tel:+2348136805462">Call Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="head">
+            <span class="tag">RESPONSE TIME</span>
+            <h3>What to Expect</h3>
+          </div>
+          <div class="body">
+            <ul>
+              <li>Form submissions reviewed daily.</li>
+              <li>Response within <b>24 hours</b> (call → WhatsApp → email).</li>
+              <li>Clarity-first guidance, without pressure.</li>
+            </ul>
+            <div class="note">
+              Your season matters. We will match the right tool to your blueprint.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <span>Financial Stewardship Charter</span>
-      <span class="dot">•</span>
-      <span>Charles Arin</span>
-      <span class="dot">•</span>
-      <span>Custodian Life Assurance Ltd</span>
+    <div class="container">
+      <div class="row">
+        <small>© <span id="y"></span> The Steward’s Charter • Charles Arin</small>
+        <a class="badge" href="#top" aria-label="Back to top">↑ Back to Top</a>
+      </div>
+      <div class="tiny" style="margin-top:10px;">
+        Custodian Life Assurance Ltd • This website provides educational stewardship guidance. Final terms are governed by official policy documents and applicable regulations.
+      </div>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
